@@ -46,7 +46,7 @@ module Fluent::Plugin
       raise Fluent::ConfigError, 'no customer_id' if @customer_id.empty?
       raise Fluent::ConfigError, 'no shared_key' if @shared_key.empty?
       raise Fluent::ConfigError, 'no log_type' if @log_type.empty?
-      if not @log_type.match(/^[[:alpha:]]+$/)
+      if not @log_type.match(/^[a-zA-Z0-9_]+$/)
         raise Fluent::ConfigError, 'log_type supports only alpha characters'
       end
       if @add_time_field and @time_field_name.empty?
